@@ -1,0 +1,1 @@
+.smart-image{display:block;max-width:100%;height:auto;object-fit:cover;background:linear-gradient(135deg,#dceceb,#eef5f5)}.smart-image[width]{height:auto}.smart-image:not([height]){min-height:1px}@media(prefers-reduced-data:reduce){.smart-image{content-visibility:auto}}
