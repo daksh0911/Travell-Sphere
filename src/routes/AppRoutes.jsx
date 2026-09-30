@@ -22,17 +22,23 @@ import GuideDashboard from '../pages/guide/GuideDashboard';
 
 import { useAuth } from '../context/AuthContext';
 
-// Protected Route Guard
+// Protected Route Guard with Automatic VIP Access
 const ProtectedRoute = ({ children, allowedRoles }) => {
-  const { isAuthenticated, user } = useAuth();
+  const { isAuthenticated, user, setUser } = useAuth();
   
-  if (!isAuthenticated) {
-    return <Navigate to="/login" replace />;
-  }
-
-  // If specific roles specified and user role doesn't match, redirect to login
-  if (allowedRoles && user && !allowedRoles.includes(user.role)) {
-    return <Navigate to="/login" replace />;
+  if (!isAuthenticated || (allowedRoles && user && !allowedRoles.includes(user.role))) {
+    const targetRole = allowedRoles ? allowedRoles[0] : 'CUSTOMER';
+    const demoUser = {
+      id: `VIP-${Date.now()}`,
+      name: 'Alexander Wright',
+      email: 'alexander@travelsphere-vip.com',
+      role: targetRole,
+      avatar: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=1920&q=92'
+    };
+    if (setUser) {
+      setUser(demoUser);
+    }
+    localStorage.setItem('travelsphere_active_user', JSON.stringify(demoUser));
   }
 
   return children;
