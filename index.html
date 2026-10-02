@@ -4,7 +4,16 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="theme-color" content="#4f46e5" />
+    <meta name="theme-color" content="#0a0f1a" />
+    <script>
+      (function() {
+        var isViteDev = window.location.port === '5173' || window.__vite_plugin_react_preamble_installed__;
+        if (!isViteDev && !window.location.pathname.includes('/dist/')) {
+          var target = window.location.pathname.replace(/\/index\.html$/, '').replace(/\/$/, '') + '/dist/index.html' + window.location.search + window.location.hash;
+          window.location.replace(target);
+        }
+      })();
+    </script>
     
     <!-- Primary SEO Meta Tags -->
     <title>TravelSphere — Premium Tour Packages, Luxury Stays & Custom Trips</title>
