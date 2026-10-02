@@ -1,441 +1,47 @@
-import { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { 
-  ArrowRight, Compass, ShieldCheck, MapPin, Calendar, 
-  Users, Sparkles, Star, Heart, CheckCircle2, ChevronRight,
-  Plane, Hotel, Car, Globe2, Award, Headphones, Sliders,
-  TrendingUp, Clock
-} from 'lucide-react';
-import { Link, useNavigate } from 'react-router-dom';
-import FramerFeatureShowcase from '../../../components/home/FramerFeatureShowcase';
+import { ArrowRight, Compass, Headphones, Heart, MapPin, Plane, ShieldCheck, Sparkles, Star, Users, WandSparkles } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import Reveal from './Reveal';
+import SmartImage from '../../../components/common/SmartImage';
 import './Home.css';
 
-const HERO_DESTINATIONS = [
-  {
-    id: 'amalfi',
-    name: 'Amalfi Coast, Italy',
-    tagline: 'Cliffside villas & sapphire waters',
-    image: 'https://images.unsplash.com/photo-1533105079780-92b9be482077?auto=format&fit=crop&w=1600&q=85',
-    price: '$2,850',
-    days: '7 Days',
-    rating: '4.98'
-  },
-  {
-    id: 'kyoto',
-    name: 'Kyoto, Japan',
-    tagline: 'Ancient shrines & bamboo forests',
-    image: 'https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?auto=format&fit=crop&w=1600&q=85',
-    price: '$3,200',
-    days: '8 Days',
-    rating: '4.99'
-  },
-  {
-    id: 'maldives',
-    name: 'North Malé, Maldives',
-    tagline: 'Private overwater sanctuaries',
-    image: 'https://images.unsplash.com/photo-1514282401047-d79a71a590e8?auto=format&fit=crop&w=1600&q=85',
-    price: '$4,100',
-    days: '6 Days',
-    rating: '5.00'
-  },
-  {
-    id: 'swiss',
-    name: 'Zermatt, Switzerland',
-    tagline: 'Matterhorn peaks & alpine chalets',
-    image: 'https://images.unsplash.com/photo-1502784444187-359ac186c5bb?auto=format&fit=crop&w=1600&q=85',
-    price: '$3,800',
-    days: '7 Days',
-    rating: '4.97'
-  }
+const FEATURED = [
+  { title: 'Maldives', meta: 'Private water villas · 5 days', image: 'https://images.unsplash.com/photo-1514282401047-d79a71a590e8?auto=format&fit=crop&w=1920&q=92', tone: 'sea' },
+  { title: 'Kyoto', meta: 'Gardens, rituals, and slow mornings', image: 'https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?auto=format&fit=crop&w=1920&q=92', tone: 'stone' },
+  { title: 'Rajasthan', meta: 'Palaces, desert skies, and stories', image: 'https://images.unsplash.com/photo-1477587458883-47145ed94245?auto=format&fit=crop&w=1920&q=92', tone: 'sand' }
 ];
 
-const CURATED_PACKAGES = [
-  {
-    id: 'pkg-1',
-    title: 'Santorini Sunset & Wine Estate Escape',
-    location: 'Santorini, Greece',
-    duration: '5 Days / 4 Nights',
-    price: 2450,
-    rating: 4.96,
-    reviews: 84,
-    image: 'https://images.unsplash.com/photo-1570077188670-e3a8d69ac5ff?auto=format&fit=crop&w=800&q=80',
-    category: 'Coastal Luxury',
-    included: ['Private Catamaran Sunset Cruise', 'Cliffside Cave Suite', 'Sommelier Vineyard Tour']
-  },
-  {
-    id: 'pkg-2',
-    title: 'Bali Rainforest & Ubud Wellness Retreat',
-    location: 'Ubud & Uluwatu, Bali',
-    duration: '7 Days / 6 Nights',
-    price: 1950,
-    rating: 4.99,
-    reviews: 142,
-    image: 'https://images.unsplash.com/photo-1537996194471-e657df975ab4?auto=format&fit=crop&w=800&q=80',
-    category: 'Wellness',
-    included: ['Private Villa with Infinity Pool', 'Holistic Spa Treatments', 'Chauffeur & Guide']
-  },
-  {
-    id: 'pkg-3',
-    title: 'Patagonia Glaciers & Eco-Lodge Expedition',
-    location: 'Torres del Paine, Chile',
-    duration: '9 Days / 8 Nights',
-    price: 4600,
-    rating: 4.98,
-    reviews: 67,
-    image: 'https://images.unsplash.com/photo-1527004013197-933c4bb611b3?auto=format&fit=crop&w=800&q=80',
-    category: 'Adventure Luxe',
-    included: ['Fjord Catamaran Excursions', 'Luxury Geo-Dome Lodge', 'Certified Trek Master']
-  }
+const JOURNEY_STEPS = [
+  ['01', 'Tell us the feeling', 'Beach calm, city energy, a little wonder—we start with what you want to feel.'],
+  ['02', 'Shape the route', 'Browse the right destinations, stays, vehicles, and experiences in one place.'],
+  ['03', 'Go with confidence', 'A real specialist, flexible support, and the important details already handled.']
 ];
 
 export default function Home() {
-  const navigate = useNavigate();
-  const [heroIndex, setHeroIndex] = useState(0);
-  const [searchTab, setSearchTab] = useState('tours');
-  const [searchDest, setSearchDest] = useState('');
-  const [searchGuests, setSearchGuests] = useState('2 Guests');
-  const [searchMonth, setSearchMonth] = useState('Flexible');
-  const [likedTrips, setLikedTrips] = useState({});
-
-  const activeHero = HERO_DESTINATIONS[heroIndex];
-
-  const handleSearch = (e) => {
-    e.preventDefault();
-    if (searchTab === 'tours') navigate(`/packages?q=${encodeURIComponent(searchDest)}`);
-    else if (searchTab === 'hotels') navigate(`/hotels?q=${encodeURIComponent(searchDest)}`);
-    else navigate(`/vehicles?q=${encodeURIComponent(searchDest)}`);
-  };
-
-  const toggleLike = (id) => {
-    setLikedTrips(prev => ({ ...prev, [id]: !prev[id] }));
-  };
-
-  return (
-    <div className="framer-home">
-      
-      {/* HERO SECTION */}
-      <section className="framer-hero">
-        <div className="hero-bg-container">
-          <AnimatePresence mode="wait">
-            <motion.div
-              key={activeHero.id}
-              className="hero-bg-image"
-              style={{ backgroundImage: `url(${activeHero.image})` }}
-              initial={{ opacity: 0, scale: 1.05 }}
-              animate={{ opacity: 1, scale: 1 }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: 0.8, ease: 'easeOut' }}
-            />
-          </AnimatePresence>
-          <div className="hero-bg-overlay" />
+  return <main className="new-home">
+    <section className="new-home-hero">
+      <div className="hero-aurora aurora-one" /><div className="hero-aurora aurora-two" /><div className="hero-grid" />
+      <nav className="hero-mini-nav"><span className="hero-kicker"><span className="pulse-dot" /> Travel, re-cut for you</span><span>Est. 2026 · 42 countries · 24/7 care</span></nav>
+      <div className="hero-layout">
+        <div className="hero-copy">
+          <Reveal direction="right"><span className="new-eyebrow"><Sparkles size={14} /> The new way to wander</span></Reveal>
+          <Reveal direction="right" delay={90}><h1>Find the version<br />of the world that<br /><em>feels like yours.</em></h1></Reveal>
+          <Reveal direction="right" delay={180}><p className="hero-lede">Thoughtful trips, beautiful stays, and local moments—shaped around your pace, not a template.</p></Reveal>
+          <Reveal direction="right" delay={270}><div className="hero-actions"><Link to="/destinations" className="hero-primary">Start exploring <ArrowRight size={17} /></Link><Link to="/packages" className="hero-secondary"><Compass size={16} /> See curated trips</Link></div></Reveal>
+          <Reveal direction="right" delay={360}><div className="hero-proof"><div className="avatar-stack"><span>AR</span><span>MK</span><span>JN</span><span>+</span></div><div><strong>Loved by 18,000+ travellers</strong><small><Star size={12} fill="currentColor" /> 4.9 average experience rating</small></div></div></Reveal>
         </div>
+        <Reveal direction="left" delay={160} className="hero-orbit-wrap"><div className="hero-orbit-card"><div className="orbit-image"><SmartImage src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1920&q=92" alt="Misty mountain landscape" priority sizes="(max-width: 900px) 92vw, 420px" /><div className="orbit-image-label"><MapPin size={13} /> Ladakh, India <span>·</span> 04:36 PM</div></div><div className="orbit-card-content"><div><small>Editor’s current obsession</small><h2>High altitude,<br /><em>low noise.</em></h2></div><Link to="/packages" className="round-arrow" aria-label="Explore mountain trips"><ArrowRight size={19} /></Link></div></div><div className="orbit-pill pill-top"><WandSparkles size={15} /><span>Made around<br /><strong>your rhythm</strong></span></div><div className="orbit-pill pill-bottom"><ShieldCheck size={15} /><span>Protected<br /><strong>every step</strong></span></div></Reveal>
+      </div>
+      <div className="hero-scroll-cue"><span /> Scroll to wander</div>
+    </section>
 
-        <div className="hero-content-wrap">
-          {/* Top Pill */}
-          <motion.div 
-            className="hero-top-pill"
-            initial={{ opacity: 0, y: -15 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ type: 'spring', stiffness: 350, damping: 25, delay: 0.1 }}
-          >
-            <Sparkles size={14} className="hero-sparkle" />
-            <span>Curated Journeys For Modern Explorers</span>
-          </motion.div>
+    <section className="new-home-section discovery-section"><Reveal><div className="section-topline"><div><span className="new-eyebrow dark">A little inspiration</span><h2>Start with a <em>somewhere.</em></h2></div><Link to="/destinations" className="section-link">View all destinations <ArrowRight size={15} /></Link></div></Reveal><div className="featured-grid">{FEATURED.map((item, index) => <Reveal key={item.title} delay={index * 100} className={index === 0 ? 'featured-card featured-card-large' : 'featured-card'}><Link to={`/destinations/${item.title.toLowerCase()}`}><SmartImage src={item.image} alt={item.title} sizes="(max-width: 620px) 92vw, (max-width: 900px) 48vw, 42vw" /><div className={`featured-tone ${item.tone}`} /><div className="featured-copy"><span>0{index + 1} / 03</span><h3>{item.title}</h3><p>{item.meta}</p><strong>Explore <ArrowRight size={15} /></strong></div></Link></Reveal>)}</div></section>
 
-          {/* Hero Headline */}
-          <motion.h1 
-            className="hero-title"
-            initial={{ opacity: 0, y: 25 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ type: 'spring', stiffness: 300, damping: 25, delay: 0.2 }}
-          >
-            Travel beyond ordinary.<br />
-            <em>Designed around you.</em>
-          </motion.h1>
+    <section className="signal-section"><div className="signal-glow" /><div className="new-home-section signal-inner"><Reveal direction="right"><span className="new-eyebrow">Why it feels different</span><h2>Less searching.<br /><em>More arriving.</em></h2><p>TravelSphere brings the whole journey together, without making you feel like you’re shopping for one.</p><Link to="/about" className="signal-link">How we travel <ArrowRight size={16} /></Link></Reveal><div className="signal-cards"><Reveal delay={80}><article><span className="signal-icon"><Heart size={18} /></span><h3>Curated, not crowded</h3><p>Places with a point of view—chosen by people who actually go.</p></article></Reveal><Reveal delay={180}><article><span className="signal-icon"><Headphones size={18} /></span><h3>A human in your corner</h3><p>Get real support before takeoff, during the trip, and after you’re home.</p></article></Reveal><Reveal delay={280}><article><span className="signal-icon"><ShieldCheck size={18} /></span><h3>Clear from the start</h3><p>Transparent inclusions, trusted partners, and no mystery at checkout.</p></article></Reveal></div></div></section>
 
-          <motion.p 
-            className="hero-desc"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ type: 'spring', stiffness: 300, damping: 25, delay: 0.3 }}
-          >
-            Handpicked villas, custom private itineraries, executive transit, and certified guides across 42 countries.
-          </motion.p>
+    <section className="new-home-section journey-section"><Reveal><div className="section-topline"><div><span className="new-eyebrow dark">The TravelSphere rhythm</span><h2>Three moves to<br /><em>somewhere better.</em></h2></div><Link to="/support" className="section-link">Need a human? <ArrowRight size={15} /></Link></div></Reveal><div className="journey-steps">{JOURNEY_STEPS.map(([number, title, copy], index) => <Reveal key={number} delay={index * 120} className="journey-step"><span className="journey-number">{number}</span><div><h3>{title}</h3><p>{copy}</p></div><ArrowRight className="journey-arrow" size={19} /></Reveal>)}</div></section>
 
-          {/* Interactive Search Console with Framer Tab Motion */}
-          <motion.div 
-            className="hero-search-card"
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ type: 'spring', stiffness: 350, damping: 28, delay: 0.4 }}
-          >
-            <div className="hero-search-tabs">
-              {[
-                { id: 'tours', label: 'Curated Tours', icon: Compass },
-                { id: 'hotels', label: 'Luxury Stays', icon: Hotel },
-                { id: 'transit', label: 'Transit & Chauffeur', icon: Car }
-              ].map(tab => {
-                const Icon = tab.icon;
-                const isActive = searchTab === tab.id;
-                return (
-                  <button
-                    key={tab.id}
-                    type="button"
-                    onClick={() => setSearchTab(tab.id)}
-                    className={`search-tab-btn ${isActive ? 'active' : ''}`}
-                  >
-                    {isActive && (
-                      <motion.div
-                        layoutId="activeSearchTab"
-                        className="search-tab-indicator"
-                        transition={{ type: 'spring', stiffness: 450, damping: 32 }}
-                      />
-                    )}
-                    <Icon size={16} />
-                    <span>{tab.label}</span>
-                  </button>
-                );
-              })}
-            </div>
+    <section className="home-trip-cta"><div className="new-home-section cta-inner"><Reveal direction="right"><span className="new-eyebrow">Your next chapter is out there</span><h2>Let’s make the<br /><em>first move.</em></h2><p>Tell us where your mind keeps going. We’ll help you find the route.</p><Link to="/packages" className="hero-primary">Find my trip <ArrowRight size={17} /></Link></Reveal><Reveal direction="left" delay={140} className="cta-art"><div className="cta-ring ring-one" /><div className="cta-ring ring-two" /><div className="cta-art-card"><Plane size={22} /><span>Next stop</span><strong>Somewhere<br />you’ll remember.</strong></div></Reveal></div></section>
 
-            <form className="hero-search-form" onSubmit={handleSearch}>
-              <div className="search-input-field">
-                <label><MapPin size={14} /> Destination</label>
-                <input 
-                  type="text" 
-                  placeholder="Where do you want to go?" 
-                  value={searchDest}
-                  onChange={e => setSearchDest(e.target.value)}
-                />
-              </div>
-
-              <div className="search-input-field">
-                <label><Calendar size={14} /> When</label>
-                <select value={searchMonth} onChange={e => setSearchMonth(e.target.value)}>
-                  <option>Flexible Dates</option>
-                  <option>This Weekend</option>
-                  <option>Next Month</option>
-                  <option>Spring 2026</option>
-                  <option>Summer 2026</option>
-                </select>
-              </div>
-
-              <div className="search-input-field">
-                <label><Users size={14} /> Travellers</label>
-                <select value={searchGuests} onChange={e => setSearchGuests(e.target.value)}>
-                  <option>1 Solo Explorer</option>
-                  <option>2 Guests (Couple)</option>
-                  <option>Small Group (3-5)</option>
-                  <option>Family / Large (6+)</option>
-                </select>
-              </div>
-
-              <motion.button 
-                whileHover={{ scale: 1.02 }} 
-                whileTap={{ scale: 0.98 }}
-                type="submit" 
-                className="search-submit-btn"
-              >
-                <span>Search Trips</span>
-                <ArrowRight size={17} />
-              </motion.button>
-            </form>
-          </motion.div>
-
-          {/* Hero Destination Carousel Switcher */}
-          <div className="hero-dest-switcher">
-            <span className="dest-switcher-label">Featured Collections:</span>
-            <div className="dest-switcher-pills">
-              {HERO_DESTINATIONS.map((d, i) => (
-                <button
-                  key={d.id}
-                  onClick={() => setHeroIndex(i)}
-                  className={`dest-pill ${heroIndex === i ? 'active' : ''}`}
-                >
-                  <span className="dest-pill-dot" />
-                  <span>{d.name.split(',')[0]}</span>
-                </button>
-              ))}
-            </div>
-          </div>
-        </div>
-
-        {/* Hero Bottom Floating Stats */}
-        <div className="hero-bottom-bar">
-          <div className="hero-bar-stat">
-            <strong>42+</strong>
-            <span>Countries Curated</span>
-          </div>
-          <div className="hero-bar-divider" />
-          <div className="hero-bar-stat">
-            <strong>18,000+</strong>
-            <span>Happy Travellers</span>
-          </div>
-          <div className="hero-bar-divider" />
-          <div className="hero-bar-stat">
-            <strong>4.98 ★</strong>
-            <span>Verified Experience Rating</span>
-          </div>
-          <div className="hero-bar-divider" />
-          <div className="hero-bar-stat">
-            <strong>24/7</strong>
-            <span>Human Concierge Desk</span>
-          </div>
-        </div>
-      </section>
-
-      {/* FRAMER FEATURE SHOWCASE (Spring physics & liquid tabs) */}
-      <FramerFeatureShowcase />
-
-      {/* CURATED TRIPS SECTION */}
-      <section className="curated-section">
-        <div className="curated-container">
-          <div className="curated-header">
-            <div>
-              <div className="curated-badge">
-                <Award size={14} />
-                <span>Handpicked Itineraries</span>
-              </div>
-              <h2 className="curated-title">Signature <em>Escapes</em></h2>
-            </div>
-            <Link to="/packages" className="curated-view-all">
-              <span>View all 48 packages</span>
-              <ArrowRight size={16} />
-            </Link>
-          </div>
-
-          <div className="curated-grid">
-            {CURATED_PACKAGES.map((pkg, i) => (
-              <motion.div
-                key={pkg.id}
-                className="curated-card"
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ type: 'spring', stiffness: 350, damping: 25, delay: i * 0.1 }}
-                whileHover={{ y: -8 }}
-              >
-                <div className="curated-card-media">
-                  <img src={pkg.image} alt={pkg.title} />
-                  <span className="curated-card-tag">{pkg.category}</span>
-                  <button 
-                    type="button"
-                    onClick={() => toggleLike(pkg.id)}
-                    className={`curated-card-like ${likedTrips[pkg.id] ? 'liked' : ''}`}
-                    aria-label="Save trip"
-                  >
-                    <Heart size={16} fill={likedTrips[pkg.id] ? '#ef4444' : 'none'} color={likedTrips[pkg.id] ? '#ef4444' : '#ffffff'} />
-                  </button>
-                  <div className="curated-card-duration">
-                    <Clock size={13} />
-                    <span>{pkg.duration}</span>
-                  </div>
-                </div>
-
-                <div className="curated-card-content">
-                  <div className="curated-card-meta">
-                    <span className="curated-card-loc">
-                      <MapPin size={13} /> {pkg.location}
-                    </span>
-                    <span className="curated-card-rating">
-                      <Star size={13} fill="#f59e0b" color="#f59e0b" /> {pkg.rating} ({pkg.reviews})
-                    </span>
-                  </div>
-
-                  <h3 className="curated-card-title">{pkg.title}</h3>
-
-                  <div className="curated-card-inclusions">
-                    {pkg.included.map((inc, j) => (
-                      <span key={j} className="inclusion-chip">
-                        <CheckCircle2 size={12} /> {inc}
-                      </span>
-                    ))}
-                  </div>
-
-                  <div className="curated-card-foot">
-                    <div className="curated-price-box">
-                      <small>From</small>
-                      <strong>${pkg.price.toLocaleString()}</strong>
-                      <span>/ person</span>
-                    </div>
-
-                    <Link to="/packages" className="curated-book-btn">
-                      <span>Reserve</span>
-                      <ArrowRight size={14} />
-                    </Link>
-                  </div>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* WHY TRAVELSPHERE ASSURANCE STRIP */}
-      <section className="assurance-section">
-        <div className="assurance-container">
-          <div className="assurance-grid">
-            <div className="assurance-card">
-              <div className="assurance-icon-box">
-                <ShieldCheck size={24} />
-              </div>
-              <h4>100% Verified Partners</h4>
-              <p>Every hotel, driver, and guide is vetted for strict safety, licensing, and 5-star service standards.</p>
-            </div>
-
-            <div className="assurance-card">
-              <div className="assurance-icon-box">
-                <Headphones size={24} />
-              </div>
-              <h4>Direct Human Specialist</h4>
-              <p>No automated phone loops. Message your dedicated travel advisor anytime on WhatsApp or phone.</p>
-            </div>
-
-            <div className="assurance-card">
-              <div className="assurance-icon-box">
-                <Award size={24} />
-              </div>
-              <h4>Best Rate & Upgrade Match</h4>
-              <p>Enjoy exclusive room upgrades, complimentary breakfasts, and early check-ins through our agency tier.</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* CTA SECTION */}
-      <section className="framer-cta-section">
-        <div className="framer-cta-container">
-          <motion.div 
-            className="framer-cta-card"
-            initial={{ opacity: 0, scale: 0.95 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ type: 'spring', stiffness: 300, damping: 25 }}
-          >
-            <div className="cta-left">
-              <span className="cta-pill">Ready for your escape?</span>
-              <h2>Let’s craft your next <em>unforgettable story.</em></h2>
-              <p>Speak with our senior journey planners or explore tailored packages ready for booking today.</p>
-              <div className="cta-actions">
-                <Link to="/packages" className="cta-btn-primary">
-                  Explore Curated Tours <ArrowRight size={17} />
-                </Link>
-                <Link to="/support" className="cta-btn-secondary">
-                  Talk to a Specialist
-                </Link>
-              </div>
-            </div>
-
-            <div className="cta-right">
-              <div className="cta-stat-circle">
-                <strong>42+</strong>
-                <span>Destinations Open</span>
-              </div>
-            </div>
-          </motion.div>
-        </div>
-      </section>
-
-    </div>
-  );
+    <footer className="new-home-footer"><div className="new-home-section footer-inner"><div><Link to="/" className="footer-brand"><span>TS</span> TravelSphere</Link><p>Travel with a point of view.</p></div><div className="footer-proof"><Users size={17} /><span><strong>18,000+ travellers</strong><small>and counting</small></span></div></div></footer>
+  </main>;
 }

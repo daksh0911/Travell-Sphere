@@ -1,8 +1,10 @@
-/* Contact Section Styling */
+/* Contact Section – Premium Dark Luxury */
 .contact-section {
-  background: #f8fafc;
+  background: #0a0f1a;
   position: relative;
   overflow: hidden;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  color: #f5f0e8;
 }
 
 .contact-container {
@@ -29,8 +31,8 @@
   inset: 0;
   background: linear-gradient(
     180deg,
-    rgba(15, 23, 42, 0.75) 0%,
-    rgba(15, 23, 42, 0.85) 100%
+    rgba(10, 15, 26, 0.82) 0%,
+    rgba(10, 15, 26, 0.95) 100%
   );
   z-index: 1;
 }
@@ -39,7 +41,7 @@
   position: relative;
   z-index: 2;
   max-width: 680px;
-  color: #ffffff;
+  color: #f5f0e8;
 }
 
 .contact-hero-badge {
@@ -47,29 +49,31 @@
   align-items: center;
   gap: 0.5rem;
   padding: 0.4rem 1.2rem;
-  background: rgba(255, 255, 255, 0.15);
+  background: rgba(212, 168, 83, 0.15);
   backdrop-filter: blur(8px);
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  color: #ffffff;
+  border: 1px solid rgba(212, 168, 83, 0.35);
+  color: #d4a853;
   border-radius: 50px;
   font-size: 0.78rem;
   font-weight: 800;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   margin-bottom: 1.25rem;
+  font-family: 'Outfit', sans-serif;
 }
 
 .contact-hero-title {
   font-size: 2.5rem;
   font-weight: 800;
-  color: #ffffff;
+  color: #f5f0e8;
   margin-bottom: 1rem;
   line-height: 1.25;
   letter-spacing: -0.02em;
+  font-family: 'Outfit', sans-serif;
 }
 
 .contact-hero-desc {
-  color: #e2e8f0;
+  color: #c8bfb2;
   font-size: 1.02rem;
   line-height: 1.65;
   margin-bottom: 2rem;
@@ -84,10 +88,10 @@
 }
 
 .contact-btn-support {
-  background: rgba(255, 255, 255, 0.15);
+  background: rgba(212, 168, 83, 0.12);
   backdrop-filter: blur(8px);
-  border: 1px solid rgba(255, 255, 255, 0.35);
-  color: #ffffff;
+  border: 1px solid rgba(212, 168, 83, 0.35);
+  color: #d4a853;
   padding: 0.8rem 1.75rem;
   border-radius: 50px;
   font-weight: 700;
@@ -97,13 +101,13 @@
 }
 
 .contact-btn-support:hover {
-  background: rgba(255, 255, 255, 0.3);
+  background: rgba(212, 168, 83, 0.25);
   transform: translateY(-2px);
 }
 
 .contact-btn-explore {
-  background: #ffffff;
-  color: #0f172a;
+  background: linear-gradient(135deg, #d4a853 0%, #f0c674 100%);
+  color: #0a0f1a;
   border: none;
   padding: 0.8rem 1.75rem;
   border-radius: 50px;
@@ -111,16 +115,15 @@
   font-size: 0.95rem;
   cursor: pointer;
   transition: all 0.25s ease;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 4px 15px rgba(212, 168, 83, 0.3);
 }
 
 .contact-btn-explore:hover {
-  background: #f8fafc;
   transform: translateY(-2px);
-  color: #1d6bf3;
+  box-shadow: 0 8px 25px rgba(212, 168, 83, 0.45);
 }
 
-/* Top Contact Info Cards Row (5 Cards) */
+/* Top Contact Info Cards Row */
 .contact-cards-row {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
@@ -131,30 +134,30 @@
 }
 
 .info-card {
-  background: #ffffff;
+  background: #141a2a;
   border-radius: 20px;
-  border: 1px solid #e2e8f0;
+  border: 1px solid rgba(255, 255, 255, 0.06);
   padding: 1.5rem 1.2rem;
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
-  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.06);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
   transition: all 0.25s ease;
 }
 
 .info-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 15px 35px rgba(15, 23, 42, 0.1);
-  border-color: #cbd5e1;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+  border-color: rgba(212, 168, 83, 0.2);
 }
 
 .info-icon-box {
   width: 52px;
   height: 52px;
   border-radius: 50%;
-  background: #eef6ff;
-  color: #1d6bf3;
+  background: rgba(212, 168, 83, 0.1);
+  color: #d4a853;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -163,8 +166,8 @@
 }
 
 .info-icon-box.orange {
-  background: #fff7ed;
-  color: #ea580c;
+  background: rgba(212, 168, 83, 0.15);
+  color: #f0c674;
 }
 
 .info-card:hover .info-icon-box {
@@ -174,17 +177,18 @@
 .info-card-title {
   font-size: 1rem;
   font-weight: 800;
-  color: #0f172a;
+  color: #f5f0e8;
   margin-bottom: 0.4rem;
+  font-family: 'Outfit', sans-serif;
 }
 
 .info-card-text {
   font-size: 0.84rem;
-  color: #64748b;
+  color: #8a8278;
   line-height: 1.45;
 }
 
-/* Main Split Grid (Form Left, Guides & Map Right) */
+/* Main Split Grid */
 .contact-main-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -194,11 +198,11 @@
 
 /* Left Form Box */
 .contact-form-card {
-  background: #ffffff;
+  background: #141a2a;
   border-radius: 28px;
-  border: 1px solid #e2e8f0;
+  border: 1px solid rgba(255, 255, 255, 0.06);
   padding: 2.5rem 2.25rem;
-  box-shadow: 0 10px 35px rgba(15, 23, 42, 0.05);
+  box-shadow: 0 10px 35px rgba(0, 0, 0, 0.3);
 }
 
 .form-header {
@@ -208,12 +212,13 @@
 .form-title {
   font-size: 1.6rem;
   font-weight: 800;
-  color: #0f172a;
+  color: #f5f0e8;
   margin-bottom: 0.4rem;
+  font-family: 'Outfit', sans-serif;
 }
 
 .form-subtitle {
-  color: #64748b;
+  color: #8a8278;
   font-size: 0.92rem;
 }
 
@@ -238,7 +243,7 @@
 .form-label {
   font-size: 0.72rem;
   font-weight: 800;
-  color: #94a3b8;
+  color: #8a8278;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   margin-left: 0.25rem;
@@ -248,21 +253,21 @@
   display: flex;
   align-items: center;
   gap: 0.6rem;
-  background: #f8fafc;
-  border: 1px solid #f1f5f9;
+  background: #111827;
+  border: 1px solid rgba(255, 255, 255, 0.06);
   border-radius: 14px;
   padding: 0.75rem 0.95rem;
   transition: all 0.2s ease;
 }
 
 .form-input-wrap:focus-within {
-  background: #ffffff;
-  border-color: #1d6bf3;
-  box-shadow: 0 0 0 3px rgba(29, 107, 243, 0.12);
+  background: #0c111d;
+  border-color: #d4a853;
+  box-shadow: 0 0 0 3px rgba(212, 168, 83, 0.12);
 }
 
 .form-icon {
-  color: #64748b;
+  color: #635c54;
   flex-shrink: 0;
 }
 
@@ -275,7 +280,7 @@
   outline: none;
   font-size: 0.92rem;
   font-weight: 600;
-  color: #1e293b;
+  color: #f5f0e8;
   font-family: inherit;
 }
 
@@ -286,7 +291,7 @@
 
 .form-input::placeholder,
 .form-textarea::placeholder {
-  color: #94a3b8;
+  color: #635c54;
   font-weight: 500;
 }
 
@@ -302,31 +307,31 @@
   width: 18px;
   height: 18px;
   border-radius: 4px;
-  border: 1px solid #cbd5e1;
+  border: 1px solid rgba(255, 255, 255, 0.12);
   display: flex;
   align-items: center;
   justify-content: center;
-  background: #ffffff;
-  color: #1d6bf3;
+  background: #111827;
+  color: #d4a853;
   flex-shrink: 0;
   margin-top: 0.15rem;
   transition: all 0.2s ease;
 }
 
 .checkbox-row.checked .checkbox-box {
-  background: #1d6bf3;
-  border-color: #1d6bf3;
-  color: #ffffff;
+  background: #d4a853;
+  border-color: #d4a853;
+  color: #0a0f1a;
 }
 
 .checkbox-text {
   font-size: 0.82rem;
-  color: #64748b;
+  color: #8a8278;
   line-height: 1.45;
 }
 
 .checkbox-text a {
-  color: #1d6bf3;
+  color: #d4a853;
   text-decoration: none;
   font-weight: 600;
 }
@@ -339,15 +344,15 @@
 }
 
 .send-msg-btn {
-  background: linear-gradient(135deg, #1d6bf3 0%, #0052cc 100%);
-  color: #ffffff;
+  background: linear-gradient(135deg, #d4a853 0%, #f0c674 100%);
+  color: #0a0f1a;
   border: none;
   border-radius: 50px;
   padding: 0.85rem 2rem;
   font-size: 0.95rem;
   font-weight: 700;
   cursor: pointer;
-  box-shadow: 0 6px 20px rgba(29, 107, 243, 0.35);
+  box-shadow: 0 6px 20px rgba(212, 168, 83, 0.3);
   transition: all 0.25s ease;
   display: flex;
   align-items: center;
@@ -356,12 +361,12 @@
 
 .send-msg-btn:hover {
   transform: translateY(-2px);
-  box-shadow: 0 10px 25px rgba(29, 107, 243, 0.45);
+  box-shadow: 0 10px 25px rgba(212, 168, 83, 0.45);
 }
 
 .reset-form-btn {
-  background: #f1f5f9;
-  color: #64748b;
+  background: rgba(255, 255, 255, 0.06);
+  color: #8a8278;
   border: none;
   border-radius: 50px;
   padding: 0.85rem 1.6rem;
@@ -372,11 +377,11 @@
 }
 
 .reset-form-btn:hover {
-  background: #e2e8f0;
-  color: #1e293b;
+  background: rgba(255, 255, 255, 0.1);
+  color: #f5f0e8;
 }
 
-/* Right Column (Guides & Map) */
+/* Right Column */
 .contact-right-col {
   display: flex;
   flex-direction: column;
@@ -395,7 +400,8 @@
   gap: 0.5rem;
   font-size: 1.15rem;
   font-weight: 800;
-  color: #0f172a;
+  color: #f5f0e8;
+  font-family: 'Outfit', sans-serif;
 }
 
 .guides-grid {
@@ -405,29 +411,29 @@
 }
 
 .guide-card {
-  background: #ffffff;
+  background: #141a2a;
   border-radius: 20px;
-  border: 1px solid #e2e8f0;
+  border: 1px solid rgba(255, 255, 255, 0.06);
   padding: 1.35rem 1.25rem;
   display: flex;
   flex-direction: column;
   gap: 0.85rem;
-  box-shadow: 0 4px 15px rgba(15, 23, 42, 0.04);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
   transition: all 0.25s ease;
 }
 
 .guide-card:hover {
   transform: translateY(-4px);
-  box-shadow: 0 12px 28px rgba(15, 23, 42, 0.08);
-  border-color: #cbd5e1;
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.35);
+  border-color: rgba(212, 168, 83, 0.2);
 }
 
 .guide-icon-box {
   width: 44px;
   height: 44px;
   border-radius: 12px;
-  background: #eef6ff;
-  color: #1d6bf3;
+  background: rgba(212, 168, 83, 0.1);
+  color: #d4a853;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -436,14 +442,15 @@
 .guide-title {
   font-size: 0.98rem;
   font-weight: 800;
-  color: #0f172a;
+  color: #f5f0e8;
+  font-family: 'Outfit', sans-serif;
 }
 
 .guide-link {
   display: inline-flex;
   align-items: center;
   gap: 0.35rem;
-  color: #1d6bf3;
+  color: #d4a853;
   font-size: 0.85rem;
   font-weight: 700;
   text-decoration: none;
@@ -452,23 +459,23 @@
 
 .guide-link:hover {
   transform: translateX(3px);
-  color: #0052cc;
+  color: #f0c674;
 }
 
 /* Map Card Box */
 .map-card-box {
-  background: #ffffff;
+  background: #141a2a;
   border-radius: 24px;
-  border: 1px solid #e2e8f0;
+  border: 1px solid rgba(255, 255, 255, 0.06);
   overflow: hidden;
-  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.05);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
 }
 
 .map-img-wrapper {
   position: relative;
   height: 200px;
   overflow: hidden;
-  background: #e2e8f0;
+  background: #0c111d;
 }
 
 .map-img {
@@ -487,20 +494,21 @@
 .map-title {
   font-size: 1.1rem;
   font-weight: 800;
-  color: #0f172a;
+  color: #f5f0e8;
   margin-bottom: 0.25rem;
+  font-family: 'Outfit', sans-serif;
 }
 
 .map-address {
-  color: #64748b;
+  color: #8a8278;
   font-size: 0.88rem;
   line-height: 1.5;
 }
 
 .get-directions-btn {
   width: 100%;
-  background: #eef6ff;
-  color: #1d6bf3;
+  background: rgba(212, 168, 83, 0.1);
+  color: #d4a853;
   border: none;
   border-radius: 50px;
   padding: 0.75rem 1rem;
@@ -515,32 +523,34 @@
 }
 
 .get-directions-btn:hover {
-  background: #1d6bf3;
-  color: #ffffff;
-  box-shadow: 0 6px 18px rgba(29, 107, 243, 0.25);
+  background: linear-gradient(135deg, #d4a853 0%, #f0c674 100%);
+  color: #0a0f1a;
+  box-shadow: 0 6px 18px rgba(212, 168, 83, 0.3);
 }
 
-/* Call To Action Banner ("Let's Plan Your Next Adventure Together") */
+/* CTA Banner */
 .adventure-cta-banner {
   position: relative;
-  background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+  background: linear-gradient(135deg, #141a2a 0%, #0c111d 100%);
   border-radius: 28px;
   padding: 3.5rem 2rem;
   text-align: center;
-  color: #ffffff;
+  color: #f5f0e8;
   margin-bottom: 5rem;
-  box-shadow: 0 16px 40px rgba(15, 23, 42, 0.15);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(212, 168, 83, 0.12);
 }
 
 .adventure-cta-title {
   font-size: 2.1rem;
   font-weight: 800;
-  color: #ffffff;
+  color: #f5f0e8;
   margin-bottom: 0.75rem;
+  font-family: 'Outfit', sans-serif;
 }
 
 .adventure-cta-desc {
-  color: #cbd5e1;
+  color: #8a8278;
   font-size: 0.98rem;
   max-width: 620px;
   margin: 0 auto 2rem;
@@ -556,8 +566,8 @@
 }
 
 .adventure-btn-primary {
-  background: #ffffff;
-  color: #0f172a;
+  background: linear-gradient(135deg, #d4a853 0%, #f0c674 100%);
+  color: #0a0f1a;
   border: none;
   border-radius: 50px;
   padding: 0.85rem 2rem;
@@ -565,19 +575,18 @@
   font-weight: 700;
   cursor: pointer;
   transition: all 0.25s ease;
-  box-shadow: 0 6px 20px rgba(255, 255, 255, 0.2);
+  box-shadow: 0 6px 20px rgba(212, 168, 83, 0.3);
 }
 
 .adventure-btn-primary:hover {
-  background: #f8fafc;
   transform: translateY(-2px);
-  color: #1d6bf3;
+  box-shadow: 0 10px 25px rgba(212, 168, 83, 0.45);
 }
 
 .adventure-btn-secondary {
-  background: rgba(255, 255, 255, 0.1);
-  color: #ffffff;
-  border: 1px solid rgba(255, 255, 255, 0.3);
+  background: rgba(212, 168, 83, 0.1);
+  color: #d4a853;
+  border: 1px solid rgba(212, 168, 83, 0.3);
   border-radius: 50px;
   padding: 0.85rem 2rem;
   font-size: 0.95rem;
@@ -587,14 +596,14 @@
 }
 
 .adventure-btn-secondary:hover {
-  background: rgba(255, 255, 255, 0.2);
+  background: rgba(212, 168, 83, 0.2);
 }
 
 /* Success Alert */
 .submit-success-alert {
-  background: #f0fdf4;
-  border: 1px solid #bbf7d0;
-  color: #166534;
+  background: rgba(212, 168, 83, 0.08);
+  border: 1px solid rgba(212, 168, 83, 0.25);
+  color: #d4a853;
   padding: 0.85rem 1rem;
   border-radius: 14px;
   font-size: 0.9rem;

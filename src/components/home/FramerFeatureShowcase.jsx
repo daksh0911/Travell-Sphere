@@ -104,8 +104,8 @@ export default function FramerFeatureShowcase() {
           <motion.div 
             initial={{ opacity: 0, y: 15 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ type: 'spring', stiffness: 300, damping: 25 }}
+            viewport={{ once: true, margin: '-50px' }}
+            transition={{ type: 'spring', stiffness: 280, damping: 24, mass: 1 }}
             className="framer-badge"
           >
             <Sparkles size={14} />
@@ -115,8 +115,8 @@ export default function FramerFeatureShowcase() {
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ type: 'spring', stiffness: 300, damping: 25, delay: 0.05 }}
+            viewport={{ once: true, margin: '-50px' }}
+            transition={{ type: 'spring', stiffness: 280, damping: 24, mass: 1, delay: 0.05 }}
             className="framer-title"
           >
             Built for those who travel <em>with intention.</em>
@@ -125,8 +125,8 @@ export default function FramerFeatureShowcase() {
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ type: 'spring', stiffness: 300, damping: 25, delay: 0.1 }}
+            viewport={{ once: true, margin: '-50px' }}
+            transition={{ type: 'spring', stiffness: 280, damping: 24, mass: 1, delay: 0.1 }}
             className="framer-subtitle"
           >
             Say goodbye to clunky booking portals and generic packages. Experience an intelligent, human-guided ecosystem.
@@ -148,7 +148,7 @@ export default function FramerFeatureShowcase() {
                   <motion.div
                     layoutId="activeTabPill"
                     className="framer-tab-active-bg"
-                    transition={{ type: 'spring', stiffness: 450, damping: 32 }}
+                    transition={{ type: 'spring', stiffness: 380, damping: 28, mass: 0.8 }}
                   />
                 )}
                 <Icon size={17} className="framer-tab-icon" />
@@ -166,7 +166,7 @@ export default function FramerFeatureShowcase() {
               initial={{ opacity: 0, y: 16, scale: 0.98 }}
               animate={{ opacity: 1, y: 0, scale: 1 }}
               exit={{ opacity: 0, y: -16, scale: 0.98 }}
-              transition={{ type: 'spring', stiffness: 350, damping: 28 }}
+              transition={{ type: 'spring', stiffness: 280, damping: 24, mass: 1 }}
               className="framer-grid"
             >
               {/* Left Column: Explanations & Live Stats */}
@@ -186,7 +186,7 @@ export default function FramerFeatureShowcase() {
                       key={st.label}
                       initial={{ opacity: 0, scale: 0.9 }}
                       animate={{ opacity: 1, scale: 1 }}
-                      transition={{ delay: i * 0.08, type: 'spring', stiffness: 400, damping: 25 }}
+                      transition={{ delay: i * 0.06, type: 'spring', stiffness: 420, damping: 22 }}
                       className="framer-stat-box"
                     >
                       <strong>{st.val}</strong>
@@ -202,7 +202,7 @@ export default function FramerFeatureShowcase() {
                       key={h}
                       initial={{ opacity: 0, x: -10 }}
                       animate={{ opacity: 1, x: 0 }}
-                      transition={{ delay: 0.1 + i * 0.07 }}
+                      transition={{ delay: 0.1 + i * 0.07, type: 'spring', stiffness: 280, damping: 24, mass: 1 }}
                       className="framer-highlight-item"
                     >
                       <CheckCircle2 size={16} className="framer-check-icon" />
@@ -213,7 +213,7 @@ export default function FramerFeatureShowcase() {
 
                 {/* Action Button with spring physics */}
                 <motion.div 
-                  whileHover={{ scale: 1.02 }} 
+                  whileHover={{ scale: 1.02, transition: { type: 'spring', stiffness: 260, damping: 18 } }} 
                   whileTap={{ scale: 0.98 }}
                   className="framer-cta-wrap"
                 >
@@ -224,11 +224,11 @@ export default function FramerFeatureShowcase() {
                 </motion.div>
               </div>
 
-              {/* Right Column: Live Interactive Glass Preview Card */}
+              {/* Right Column: Live Interactive Preview Card */}
               <div className="framer-preview-col">
                 <motion.div 
                   className="framer-preview-card"
-                  whileHover={{ y: -6, transition: { type: 'spring', stiffness: 300, damping: 20 } }}
+                  whileHover={{ y: -6, transition: { type: 'spring', stiffness: 260, damping: 18 } }}
                 >
                   <div className="framer-card-media">
                     <img src={current.preview.image} alt={current.preview.title} />
@@ -245,7 +245,7 @@ export default function FramerFeatureShowcase() {
                     
                     <div className="framer-card-footer">
                       <div className="framer-rating">
-                        <Star size={13} fill="#f59e0b" color="#f59e0b" />
+                        <Star size={13} fill="#d4a853" color="#d4a853" />
                         <strong>4.99</strong>
                         <span>(128 reviews)</span>
                       </div>
@@ -258,8 +258,8 @@ export default function FramerFeatureShowcase() {
                   {/* Floating Micro-Badge */}
                   <motion.div 
                     className="framer-floating-status"
-                    animate={{ y: [0, -6, 0] }}
-                    transition={{ repeat: Infinity, duration: 4, ease: 'easeInOut' }}
+                    animate={{ y: [0, -4, 0] }}
+                    transition={{ repeat: Infinity, duration: 5, ease: 'easeInOut' }}
                   >
                     <div className="framer-live-pulse" />
                     <span>Instant Booking Protected</span>
