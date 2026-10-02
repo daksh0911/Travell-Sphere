@@ -1,16 +1,14 @@
-/* About Page Styling - Modern Clean Luxe */
+/* About Page Styling */
 .about-page {
   background: #f8fafc;
   min-height: 100vh;
   padding-bottom: 5rem;
-  color: #0f172a;
-  font-family: var(--font-family-base, 'Plus Jakarta Sans', system-ui, sans-serif);
 }
 
 /* Hero */
 .about-hero {
   position: relative;
-  min-height: 440px;
+  min-height: 380px;
   background-image: url('https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?auto=format&fit=crop&w=1920&q=92');
   background-size: cover;
   background-position: center;
@@ -18,20 +16,20 @@
   align-items: center;
   justify-content: center;
   text-align: center;
-  padding: 7rem 1.5rem 5rem;
+  padding: 5rem 1.5rem;
 }
 
 .about-hero-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, rgba(15, 23, 42, 0.6) 0%, rgba(15, 23, 42, 0.8) 100%);
+  background: linear-gradient(180deg, rgba(15, 23, 42, 0.7) 0%, rgba(15, 23, 42, 0.85) 100%);
   z-index: 1;
 }
 
 .about-hero-content {
   position: relative;
   z-index: 2;
-  max-width: 760px;
+  max-width: 700px;
   color: #ffffff;
 }
 
@@ -40,37 +38,35 @@
   align-items: center;
   gap: 0.5rem;
   padding: 0.4rem 1.2rem;
-  background: rgba(255, 255, 255, 0.2);
-  backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.4);
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
   color: #ffffff;
   border-radius: 50px;
-  font-size: 0.8rem;
+  font-size: 0.78rem;
   font-weight: 800;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
   margin-bottom: 1.25rem;
 }
 
 .about-hero-title {
-  font-family: var(--font-family-heading, 'Outfit', sans-serif);
-  font-size: clamp(2.6rem, 5vw, 4rem);
+  font-size: 2.75rem;
   font-weight: 800;
-  letter-spacing: -0.03em;
   color: #ffffff;
   margin-bottom: 1rem;
-  line-height: 1.15;
+  line-height: 1.2;
 }
 
 .about-hero-desc {
-  color: #f1f5f9;
-  font-size: 1.1rem;
+  color: #e2e8f0;
+  font-size: 1.05rem;
   line-height: 1.65;
 }
 
 /* Container */
 .about-container {
-  max-width: 1240px;
+  max-width: 1200px;
   margin: 0 auto;
   padding: 0 1.5rem;
 }
@@ -78,47 +74,44 @@
 /* Stats */
 .about-stats-row {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 1.5rem;
-  margin: -3rem auto 5rem;
+  margin: -3rem auto 4.5rem;
   position: relative;
   z-index: 10;
 }
 
 .about-stat-card {
   background: #ffffff;
-  border-radius: 22px;
+  border-radius: 20px;
   border: 1px solid #e2e8f0;
-  padding: 2rem 1.25rem;
+  padding: 1.75rem 1.25rem;
   text-align: center;
-  box-shadow: 0 10px 25px rgba(15, 23, 42, 0.06);
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.06);
 }
 
 .about-stat-value {
-  font-family: var(--font-family-heading, 'Outfit', sans-serif);
-  font-size: 2.5rem;
+  font-size: 2.2rem;
   font-weight: 800;
-  background: linear-gradient(135deg, #0284c7, #06b6d4);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  color: #1d6bf3;
   margin-bottom: 0.3rem;
 }
 
 .about-stat-label {
-  font-size: 0.85rem;
+  font-size: 0.88rem;
   font-weight: 700;
   color: #64748b;
   text-transform: uppercase;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.04em;
 }
 
 /* Section Badges & Titles */
 .about-section-badge {
   display: inline-block;
-  color: #0284c7;
-  font-size: 0.8rem;
+  color: #1d6bf3;
+  font-size: 0.78rem;
   font-weight: 800;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
   margin-bottom: 0.5rem;
 }
@@ -129,56 +122,54 @@
 }
 
 .about-section-title {
-  font-family: var(--font-family-heading, 'Outfit', sans-serif);
-  font-size: 2.2rem;
+  font-size: 2rem;
   font-weight: 800;
-  letter-spacing: -0.02em;
   color: #0f172a;
   margin-bottom: 1.25rem;
-  line-height: 1.25;
+  line-height: 1.3;
 }
 
 .about-section-title.center {
   text-align: center;
-  margin-bottom: 3.5rem;
+  margin-bottom: 3rem;
 }
 
 /* Story */
 .about-story-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 4rem;
+  gap: 3.5rem;
   align-items: center;
   margin-bottom: 6rem;
 }
 
 .about-story-para {
   color: #475569;
-  font-size: 1.05rem;
-  line-height: 1.75;
+  font-size: 1rem;
+  line-height: 1.7;
   margin-bottom: 1.25rem;
 }
 
 .about-cta-btn {
   display: inline-flex;
   align-items: center;
-  gap: 0.6rem;
-  background: linear-gradient(135deg, #0284c7, #06b6d4);
+  gap: 0.5rem;
+  background: #1d6bf3;
   color: #ffffff;
   border: none;
   border-radius: 50px;
-  padding: 0.95rem 2rem;
+  padding: 0.85rem 1.8rem;
   font-size: 0.95rem;
-  font-weight: 800;
+  font-weight: 700;
   cursor: pointer;
-  box-shadow: 0 8px 24px rgba(2, 132, 199, 0.35);
+  box-shadow: 0 6px 20px rgba(29, 107, 243, 0.3);
   transition: all 0.25s ease;
   margin-top: 0.5rem;
 }
 
 .about-cta-btn:hover {
   transform: translateY(-2px);
-  box-shadow: 0 12px 30px rgba(2, 132, 199, 0.5);
+  box-shadow: 0 10px 25px rgba(29, 107, 243, 0.4);
 }
 
 .about-story-img-wrap {
@@ -188,27 +179,26 @@
 .about-story-img {
   width: 100%;
   border-radius: 24px;
-  border: 1px solid #e2e8f0;
-  box-shadow: 0 20px 45px rgba(15, 23, 42, 0.08);
+  box-shadow: 0 20px 40px rgba(15, 23, 42, 0.12);
   object-fit: cover;
-  height: 420px;
+  height: 380px;
 }
 
 .about-story-badge-float {
   position: absolute;
-  bottom: 24px;
-  left: 24px;
-  background: #ffffff;
-  border: 1px solid #e2e8f0;
-  padding: 0.85rem 1.4rem;
+  bottom: 20px;
+  left: 20px;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  padding: 0.75rem 1.25rem;
   border-radius: 50px;
   display: flex;
   align-items: center;
-  gap: 0.6rem;
-  font-weight: 800;
-  font-size: 0.9rem;
-  color: #0284c7;
-  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.1);
+  gap: 0.5rem;
+  font-weight: 700;
+  font-size: 0.88rem;
+  color: #0f172a;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
 }
 
 /* Values */
@@ -218,41 +208,38 @@
 
 .about-values-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
   gap: 2rem;
 }
 
 .about-value-card {
   background: #ffffff;
-  border-radius: 22px;
+  border-radius: 20px;
   border: 1px solid #e2e8f0;
-  padding: 2.2rem 1.75rem;
+  padding: 2rem 1.5rem;
   text-align: center;
-  box-shadow: 0 10px 25px rgba(15, 23, 42, 0.04);
-  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: all 0.25s ease;
 }
 
 .about-value-card:hover {
-  transform: translateY(-6px);
-  border-color: #bae6fd;
-  box-shadow: 0 20px 40px rgba(15, 23, 42, 0.08);
+  transform: translateY(-5px);
+  box-shadow: 0 15px 35px rgba(15, 23, 42, 0.08);
 }
 
 .about-value-icon {
-  width: 64px;
-  height: 64px;
-  border-radius: 18px;
-  background: #e0f2fe;
-  color: #0284c7;
+  width: 60px;
+  height: 60px;
+  border-radius: 16px;
+  background: #eef6ff;
+  color: #1d6bf3;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 0 auto 1.5rem;
+  margin: 0 auto 1.25rem;
 }
 
 .about-value-title {
-  font-family: var(--font-family-heading, 'Outfit', sans-serif);
-  font-size: 1.25rem;
+  font-size: 1.15rem;
   font-weight: 800;
   color: #0f172a;
   margin-bottom: 0.5rem;
@@ -260,7 +247,7 @@
 
 .about-value-desc {
   color: #64748b;
-  font-size: 0.92rem;
+  font-size: 0.9rem;
   line-height: 1.6;
 }
 
@@ -271,23 +258,22 @@
 
 .about-team-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: 2rem;
 }
 
 .about-team-card {
   background: #ffffff;
-  border-radius: 22px;
+  border-radius: 24px;
   border: 1px solid #e2e8f0;
-  padding: 2.2rem 1.5rem;
+  padding: 2rem 1.5rem;
   text-align: center;
-  box-shadow: 0 10px 25px rgba(15, 23, 42, 0.04);
-  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: all 0.25s ease;
 }
 
 .about-team-card:hover {
-  transform: translateY(-6px);
-  border-color: #bae6fd;
+  transform: translateY(-5px);
+  box-shadow: 0 15px 35px rgba(15, 23, 42, 0.08);
 }
 
 .about-team-avatar {
@@ -296,45 +282,41 @@
 }
 
 .about-team-name {
-  font-family: var(--font-family-heading, 'Outfit', sans-serif);
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   font-weight: 800;
   color: #0f172a;
   margin-bottom: 0.25rem;
 }
 
 .about-team-role {
-  color: #0284c7;
-  font-size: 0.88rem;
-  font-weight: 700;
+  color: #64748b;
+  font-size: 0.85rem;
+  font-weight: 600;
 }
 
 /* CTA Banner */
 .about-cta-banner {
-  background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%);
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
   border-radius: 28px;
-  padding: 4rem 2rem;
+  padding: 3.5rem 2rem;
   text-align: center;
   color: #ffffff;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 1.25rem;
-  box-shadow: 0 20px 50px rgba(2, 132, 199, 0.3);
+  gap: 1rem;
 }
 
 .about-cta-title {
-  font-family: var(--font-family-heading, 'Outfit', sans-serif);
-  font-size: clamp(2rem, 3.8vw, 2.8rem);
+  font-size: 2rem;
   font-weight: 800;
-  letter-spacing: -0.02em;
 }
 
 .about-cta-desc {
-  color: #e0f2fe;
-  font-size: 1.05rem;
-  max-width: 600px;
-  line-height: 1.65;
+  color: #cbd5e1;
+  font-size: 0.98rem;
+  max-width: 580px;
+  line-height: 1.6;
 }
 
 .about-cta-actions {
@@ -346,29 +328,28 @@
 }
 
 .about-btn-primary {
-  background: #ffffff;
-  color: #0284c7;
+  background: #1d6bf3;
+  color: #ffffff;
   border: none;
   border-radius: 50px;
-  padding: 0.95rem 2.2rem;
+  padding: 0.85rem 2rem;
   font-size: 0.95rem;
-  font-weight: 800;
+  font-weight: 700;
   cursor: pointer;
   transition: all 0.25s ease;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
 }
 
 .about-btn-primary:hover {
+  background: #1557c0;
   transform: translateY(-2px);
-  background: #f8fafc;
 }
 
 .about-btn-secondary {
-  background: rgba(255, 255, 255, 0.15);
+  background: rgba(255, 255, 255, 0.1);
   color: #ffffff;
-  border: 1px solid rgba(255, 255, 255, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.3);
   border-radius: 50px;
-  padding: 0.95rem 2.2rem;
+  padding: 0.85rem 2rem;
   font-size: 0.95rem;
   font-weight: 700;
   cursor: pointer;
@@ -376,7 +357,7 @@
 }
 
 .about-btn-secondary:hover {
-  background: rgba(255, 255, 255, 0.25);
+  background: rgba(255, 255, 255, 0.2);
 }
 
 @media (max-width: 768px) {
@@ -384,6 +365,6 @@
     grid-template-columns: 1fr;
   }
   .about-hero-title {
-    font-size: 2.2rem;
+    font-size: 2rem;
   }
 }

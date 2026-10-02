@@ -1,64 +1,48 @@
 :root {
-  /* Modern Clean Luxe Theme ("Airy Azure & Sunset Horizon") */
+  /* Brand Colors */
   --color-primary: #0284c7;
   --color-primary-hover: #0369a1;
   --color-primary-light: #e0f2fe;
-  --color-primary-gradient: linear-gradient(135deg, #0284c7 0%, #06b6d4 100%);
-  
   --color-secondary: #f59e0b;
   --color-secondary-hover: #d97706;
-  --color-secondary-gradient: linear-gradient(135deg, #f59e0b 0%, #fbbf24 100%);
-  
   --color-accent: #10b981;
-  --color-accent-coral: #f43f5e;
-  --color-accent-purple: #8b5cf6;
   
-  /* Text */
   --color-text-dark: #0f172a;
-  --color-text-heading: #091322;
   --color-text-medium: #334155;
   --color-text-light: #64748b;
   --color-text-muted: #94a3b8;
   --color-text-white: #ffffff;
   
-  /* Surface & Background (Crisp Modern Light/Airy) */
   --color-bg-main: #f8fafc;
-  --color-bg-alt: #f1f5f9;
-  --color-bg-card: rgba(255, 255, 255, 0.92);
-  --color-bg-card-hover: #ffffff;
   --color-bg-white: #ffffff;
+  --color-bg-alt: #f1f5f9;
   --color-bg-dark: #0f172a;
+  --color-bg-card: #ffffff;
   
-  /* Borders */
   --color-border: #e2e8f0;
-  --color-border-hover: #0284c7;
   --color-border-light: #f1f5f9;
   
   /* Typography */
-  --font-family-heading: 'Outfit', 'Plus Jakarta Sans', system-ui, sans-serif;
+  --font-family-heading: 'Outfit', 'Plus Jakarta Sans', sans-serif;
   --font-family-base: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
   
   /* Border Radius */
-  --radius-sm: 8px;
-  --radius-md: 14px;
-  --radius-lg: 22px;
-  --radius-xl: 30px;
+  --radius-sm: 6px;
+  --radius-md: 12px;
+  --radius-lg: 20px;
+  --radius-xl: 28px;
   --radius-full: 9999px;
   
-  /* Shadows & Depth */
-  --shadow-sm: 0 2px 8px rgba(15, 23, 42, 0.04);
-  --shadow-md: 0 12px 30px -6px rgba(15, 23, 42, 0.08), 0 4px 12px rgba(15, 23, 42, 0.03);
-  --shadow-lg: 0 24px 50px -12px rgba(15, 23, 42, 0.12), 0 8px 24px rgba(15, 23, 42, 0.04);
-  --shadow-glow: 0 14px 35px -8px rgba(2, 132, 199, 0.28);
-  --shadow-hover: 0 20px 45px -10px rgba(2, 132, 199, 0.22);
-  
-  /* Glassmorphism */
-  --glass-bg: rgba(255, 255, 255, 0.88);
-  --glass-border: rgba(255, 255, 255, 0.6);
-  --glass-blur: blur(20px);
+  /* Shadows & Glassmorphism */
+  --shadow-sm: 0 2px 4px 0 rgba(15, 23, 42, 0.04);
+  --shadow-md: 0 10px 25px -5px rgba(15, 23, 42, 0.08), 0 8px 10px -6px rgba(15, 23, 42, 0.04);
+  --shadow-lg: 0 20px 30px -10px rgba(15, 23, 42, 0.12), 0 10px 15px -5px rgba(15, 23, 42, 0.06);
+  --shadow-hover: 0 25px 45px -12px rgba(2, 132, 199, 0.22);
+  --glass-bg: rgba(255, 255, 255, 0.85);
+  --glass-border: rgba(255, 255, 255, 0.4);
   
   /* Layout */
-  --max-width-container: 1320px;
-  --transition-normal: 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-  --transition-fast: 0.15s cubic-bezier(0.16, 1, 0.3, 1);
+  --max-width-container: 1280px;
+  --transition-normal: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-fast: 0.15s cubic-bezier(0.4, 0, 0.2, 1);
 }
