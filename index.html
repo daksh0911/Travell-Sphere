@@ -2,126 +2,26 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="theme-color" content="#0a0f1a" />
-    <script>
-      (function() {
-        var isViteDev = window.location.port === '5173' || window.__vite_plugin_react_preamble_installed__;
-        if (!isViteDev && !window.location.pathname.includes('/dist/')) {
-          var target = window.location.pathname.replace(/\/index\.html$/, '').replace(/\/$/, '') + '/dist/index.html' + window.location.search + window.location.hash;
-          window.location.replace(target);
-        }
-      })();
-    </script>
     
     <!-- Primary SEO Meta Tags -->
     <title>TravelSphere — Premium Tour Packages, Luxury Stays & Custom Trips</title>
     <meta name="title" content="TravelSphere — Premium Tour Packages, Luxury Stays & Custom Trips" />
     <meta name="description" content="Explore curated tour packages, luxury hotels, verified transport, and expert local guides with TravelSphere. Plan your dream trip today!" />
-    <meta name="keywords" content="travel management, tour packages, luxury hotels, trip planner, tour guides, travel booking, custom travel, TravelSphere" />
-    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
-    <link rel="canonical" href="https://travelsphere.example.com/" />
-
-    <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://travelsphere.example.com/" />
-    <meta property="og:site_name" content="TravelSphere" />
-    <meta property="og:title" content="TravelSphere — Premium Tour Packages, Luxury Stays & Custom Trips" />
-    <meta property="og:description" content="Explore curated tour packages, luxury hotels, verified transport, and expert local guides with TravelSphere. Plan your dream trip today!" />
-    <meta property="og:image" content="https://images.unsplash.com/photo-1514282401047-d79a71a590e8?auto=format&fit=crop&w=1200&q=80" />
-    <meta property="og:locale" content="en_US" />
-
-    <!-- Twitter Cards -->
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:url" content="https://travelsphere.example.com/" />
-    <meta name="twitter:title" content="TravelSphere — Premium Tour Packages, Luxury Stays & Custom Trips" />
-    <meta name="twitter:description" content="Explore curated tour packages, luxury hotels, verified transport, and expert local guides with TravelSphere." />
-    <meta name="twitter:image" content="https://images.unsplash.com/photo-1514282401047-d79a71a590e8?auto=format&fit=crop&w=1200&q=80" />
-
+    
     <!-- Typography & Styling -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
-    <!-- Structured Data / JSON-LD Schemas -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@graph": [
-        {
-          "@type": "TravelAgency",
-          "@id": "https://travelsphere.example.com/#organization",
-          "name": "TravelSphere",
-          "url": "https://travelsphere.example.com/",
-          "logo": "https://travelsphere.example.com/favicon.svg",
-          "image": "https://images.unsplash.com/photo-1514282401047-d79a71a590e8?auto=format&fit=crop&w=1200&q=80",
-          "description": "Premium travel management platform offering curated tour packages, luxury accommodations, transport bookings, and expert local guides.",
-          "priceRange": "$$$",
-          "contactPoint": {
-            "@type": "ContactPoint",
-            "telephone": "+1-800-555-0199",
-            "contactType": "customer service",
-            "availableLanguage": ["English"]
-          }
-        },
-        {
-          "@type": "WebSite",
-          "@id": "https://travelsphere.example.com/#website",
-          "url": "https://travelsphere.example.com/",
-          "name": "TravelSphere",
-          "description": "Find the version of the world that feels like yours.",
-          "publisher": {
-            "@id": "https://travelsphere.example.com/#organization"
-          },
-          "potentialAction": {
-            "@type": "SearchAction",
-            "target": "https://travelsphere.example.com/destinations?q={search_term_string}",
-            "query-input": "required name=search_term_string"
-          }
-        },
-        {
-          "@type": "BreadcrumbList",
-          "@id": "https://travelsphere.example.com/#breadcrumb",
-          "itemListElement": [
-            {
-              "@type": "ListItem",
-              "position": 1,
-              "name": "Home",
-              "item": "https://travelsphere.example.com/"
-            },
-            {
-              "@type": "ListItem",
-              "position": 2,
-              "name": "Destinations",
-              "item": "https://travelsphere.example.com/destinations"
-            },
-            {
-              "@type": "ListItem",
-              "position": 3,
-              "name": "Tour Packages",
-              "item": "https://travelsphere.example.com/packages"
-            }
-          ]
-        }
-      ]
-    }
-    </script>
+    <!-- Direct bundle links for VS Code Live Server ("Go Live") execution -->
+    <script type="module" crossorigin src="./dist/assets/index-DP3B8c-a.js"></script>
+    <link rel="stylesheet" crossorigin href="./dist/assets/index-W0VVqufV.css">
   </head>
   <body>
     <div id="root"></div>
-    <script>
-      // Fallback for VS Code Live Server static execution
-      window.addEventListener('error', function(e) {
-        if (!window.__redirectedToDist && (e.filename?.includes('.jsx') || e.message?.includes('token') || e.message?.includes('module'))) {
-          window.__redirectedToDist = true;
-          if (window.location.pathname.endsWith('/index.html') || window.location.pathname.endsWith('/')) {
-            window.location.href = window.location.pathname.replace(/\/index\.html$/, '').replace(/\/$/, '') + '/dist/index.html';
-          }
-        }
-      }, true);
-    </script>
     <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>
-
